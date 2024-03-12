@@ -1,7 +1,7 @@
 import fs from 'fs/promises'
 import http from 'http'
 
-const updateCounter = async (url, file) => {
+const updateCounter = async (url, counter, file) => {
     if (url === '/increase') {
         counter++;
     }
@@ -21,7 +21,7 @@ const handleRequest = async (req, res) => {
     }
   
     if (req.url === '/increase' || req.url === '/decrease') {
-        updateCounter(req.url, 'counter.txt');
+        updateCounter(req.url, counter, 'counter.txt');
         res.end('OK');
     }
     else if (req.url === '/read') {
