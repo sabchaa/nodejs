@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= todo.title %></title>
+</head>
+<body>
+
+<h1><%= todo.title %></h1>
+  <p>Stav: <%= todo.done ? 'Splněno' : 'Nesplněno' %></p>
+
+  <form method="post" action="/toggle-todo/<%= todo.id %>">
+    <button type="submit">Změnit stav</button>
+  </form>
+
+  <form method="get" action="/remove-todo/<%= todo.id %>">
+    <button type="submit">Odstranit</button>
+  </form>
+
+  <form method="post" action="/update-todo/<%= todo.id %>">
+    <input
+      placeholder="Nový název"
+      name="title">
+    <button type="submit">Upravit název</button>
+  </form>
+</body>
+</html>
